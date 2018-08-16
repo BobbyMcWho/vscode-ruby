@@ -118,7 +118,7 @@ class Linter {
 					}
 				});
 				spawned.on("error", e => reject(e));
-				if (cmdOpts.data) spawned.stdin.end(cmdOpts.data);
+				if (cmdOpts.data && spawned.pid) spawned.stdin.end(cmdOpts.data);
 			})
 			.catch(e => ({
 				error: e,
